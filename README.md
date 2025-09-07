@@ -11,7 +11,7 @@ The overall model architecture is shown below. This network draws inspiration fr
 
 
 Visualization Results (Rain, Snow, and Fog Conditions):
-从左往右依次为Input, MPRNet, SwinIR, RSFormer, DNSWNet(ours)
+From left to right:Input, MPRNet, SwinIR, RSFormer, DNSWNet(ours)
 
 
 ![rain_snow](https://github.com/user-attachments/assets/0484465b-64ef-4499-b6a5-ac0dc5bfea20)
