@@ -8,7 +8,7 @@ from glob import glob
 from PIL import Image
 from tqdm import tqdm
 import time
-from loss import CombinedLoss
+from Lossfunction import SSIMLoss
 from model import DNSWNet
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -86,7 +86,7 @@ for module in model.modules():
         del module.total_params
 
 model = nn.DataParallel(model)  # 使用 DataParallel 并行化模型
-criterion = CombinedLoss(alpha=0.7).to(device)
+criterion = SSIMLoss().to(device)
 optimizer = optim.RAdam(model.parameters(), lr=learning_rate)
 # 学习率调度器
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=5, verbose=True)
