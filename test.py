@@ -128,7 +128,7 @@ optimizer = optim.RAdam(model.parameters(), lr=learning_rate)
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', factor=0.5, patience=5, verbose=True)
 
 
-best_model_path ='DNSWNet/DNSWNet_allweather/DNSWNet_AllWeather_MSE_model.pth'
+best_model_path = 'DNSWNet_AllWeather_model.pth'
 
 if hasattr(model, 'module'):
     model.module.load_state_dict(torch.load(best_model_path))
@@ -241,5 +241,5 @@ with torch.no_grad():
 
 # 保存并关闭图像
 plt.tight_layout()
-plt.savefig('DNSWNet/DNSWNet_allweather/MSE_test.png')
+plt.savefig('test.png')
 plt.close()
